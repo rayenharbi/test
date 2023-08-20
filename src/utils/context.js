@@ -6,7 +6,7 @@ export const Context = createContext();
 
 const AppContext = ({ children }) => {
     const [categories, setCategories] = useState();
-    const [products, setProducts] = useState();
+    const [products, setProducts] = useState([]);
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [cartCount, setCartCount] = useState(0);
@@ -14,29 +14,35 @@ const AppContext = ({ children }) => {
     const location = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location]);
+        // Load cart items from local storage on component mount
+        const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        setCartItems(storedCartItems);
+    }, []);
 
     useEffect(() => {
+        // Save cart items to local storage whenever they change
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
         let count = 0;
-        cartItems?.map((item) => (count += item.attributes.quantity));
+        cartItems?.map((item) => (count += item.quantity));
         setCartCount(count);
 
         let subTotal = 0;
         cartItems.map(
             (item) =>
-                (subTotal += item.attributes.price * item.attributes.quantity)
+                (subTotal += item.price * item.quantity)
         );
         setCartSubTotal(subTotal);
     }, [cartItems]);
+
 
     const handleAddToCart = (product, quantity) => {
         let items = [...cartItems];
         let index = items?.findIndex((p) => p.id === product?.id);
         if (index !== -1) {
-            items[index].attributes.quantity += quantity;
+            items[index].quantity += quantity;
         } else {
-            product.attributes.quantity = quantity;
+            product.quantity = quantity;
             items = [...items, product];
         }
         setCartItems(items);
@@ -52,10 +58,10 @@ const AppContext = ({ children }) => {
         let items = [...cartItems];
         let index = items?.findIndex((p) => p.id === product?.id);
         if (type === "inc") {
-            items[index].attributes.quantity += 1;
+            items[index].quantity += 1;
         } else if (type === "dec") {
-            if (items[index].attributes.quantity === 1) return;
-            items[index].attributes.quantity -= 1;
+            if (items[index].quantity === 1) return;
+            items[index].quantity -= 1;
         }
         setCartItems(items);
     };

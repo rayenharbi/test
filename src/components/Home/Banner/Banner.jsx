@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Banner.scss";
+import Products from "../../Products/Products";
 
 
 const Banner = () => {
