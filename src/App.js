@@ -8,7 +8,7 @@ import Category from "./components/Category/Category";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import AppContext from "./utils/context";
-import CheckOut from "./components/CheckOut/CheckOut"
+import CheckOut from "./components/Cart/CheckOut"
 
 function App() {
     return (
