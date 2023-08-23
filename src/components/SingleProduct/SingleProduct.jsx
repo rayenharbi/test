@@ -14,6 +14,7 @@ import {
 import "./SingleProduct.scss";
 
 const SingleProduct = () => {
+    const [size, SetSize] = useState('S');
     const [quantity, setQuantity] = useState(1);
     const { id } = useParams();
     const { handleAddToCart } = useContext(Context);
@@ -26,7 +27,16 @@ const SingleProduct = () => {
         }
         getProduct();
       }, [id]);
-
+    
+    const SelectSize = (event) => {
+        var sizeElements = document.querySelectorAll('.psize');
+        var size_target = event.target;
+        SetSize(size_target.getAttribute("value"));
+        sizeElements.forEach(function(element) {
+          element.classList.remove('active');
+        })
+        size_target.classList.add('active');
+      }
     const decrement = () => {
         setQuantity((prevState) => {
             if (prevState === 1) return 1;
@@ -35,7 +45,6 @@ const SingleProduct = () => {
     };
     const increment = () => {
         setQuantity((prevState) => prevState + 1);
-        console.log(quantity);
     };
 
 
@@ -55,7 +64,12 @@ const SingleProduct = () => {
                         <span className="name">{product.title}</span>
                         <span className="price">&#8377;{product.price}</span>
                         <span className="desc">{product.description}</span>
-
+                        <div className="product_size">  
+                          <div className="psize active" value="S" onClick={SelectSize}>S</div>
+                          <div className="psize" value="M" onClick={SelectSize}>M</div>
+                          <div className="psize" value="L" onClick={SelectSize}>L</div>
+                          <div className="psize" value="XL" onClick={SelectSize}>XL</div>
+                        </div>
                         <div className="cart-buttons">
                             <div className="quantity-buttons">
                                 <span onClick={decrement}>-</span>
@@ -65,8 +79,13 @@ const SingleProduct = () => {
                             <button
                                 className="add-to-cart-button"
                                 onClick={() => {
-                                    handleAddToCart(product, quantity);
+                                    handleAddToCart(product, quantity, size);
                                     setQuantity(1);
+                                    SetSize('S');
+                                    document.querySelectorAll('.psize').forEach(function(element) {
+                                        element.classList.remove('active');
+                                    })
+                                    document.querySelector('.psize[value="S"]').classList.add('active');
                                 }}
                             >
                                 <FaCartPlus size={20} />

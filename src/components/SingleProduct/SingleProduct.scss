@@ -61,7 +61,27 @@
                         margin-bottom: 20px;
                     }
                 }
-
+                .product_size {
+                    display: flex;
+                    
+                    margin: 20px 0;
+                   
+                }
+                .psize {
+                    width: 60px;
+                    height: 30px;
+                    border: 1px solid #000;
+                    color: #000;
+                    text-align: center;
+                    padding-top: 3px;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+                .psize.active {
+                    border-width: 1.5px;
+                    background-color:#8e2de2;
+                    color: #fff;
+                }
                 .cart-buttons {
                     display: flex;
                     @include md {

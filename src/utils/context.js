@@ -36,27 +36,27 @@ const AppContext = ({ children }) => {
     }, [cartItems]);
 
 
-    const handleAddToCart = (product, quantity) => {
+    const handleAddToCart = (product, quantity, size) => {
+        const newItem = { ...product, quantity, size };
         let items = [...cartItems];
-        let index = items?.findIndex((p) => p.id === product?.id);
+        let index = items.findIndex((p) => p.id === product.id && p.size === size);
         if (index !== -1) {
-            items[index].quantity += quantity;
+            items[index] = { ...items[index], quantity: items[index].quantity + quantity };
         } else {
-            product.quantity = quantity;
-            items = [...items, product];
+            items.push(newItem);
         }
         setCartItems(items);
     };
 
     const handleRemoveFromCart = (product) => {
         let items = [...cartItems];
-        items = items?.filter((p) => p.id !== product?.id);
+        items = items?.filter((p) => !(p.id === product.id && p.size === product.size));
         setCartItems(items);
     };
 
     const handleCartProductQuantity = (type, product) => {
         let items = [...cartItems];
-        let index = items?.findIndex((p) => p.id === product?.id);
+        let index = items?.findIndex((p) => p.id === product.id && p.size === product.size);
         if (type === "inc") {
             items[index].quantity += 1;
         } else if (type === "dec") {

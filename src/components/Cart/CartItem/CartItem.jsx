@@ -28,6 +28,7 @@ const CartItem = () => {
                             className="close-btn"
                             onClick={() => handleRemoveFromCart(item)}
                         />
+                        <span>{item.size}</span>
                         <div className="quantity-buttons">
                             <span
                                 onClick={() =>

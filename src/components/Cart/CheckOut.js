@@ -13,7 +13,6 @@ function CheckOut() {
     address: '',
     phone: '',
     city: '',
-    size: 'L',
     items: cartItems,
     total: cartSubTotal
   });
