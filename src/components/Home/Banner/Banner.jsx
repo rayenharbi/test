@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Banner.scss";
 import Products from "../../Products/Products";
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -19,8 +20,12 @@ const Banner = () => {
                         curae tempor
                     </p>
                     <div className="ctas">
+                        <Link to={"About"}>
                         <div className="banner-cta">Read More</div>
+                        </Link>
+                        <Link to={"/product/:id"}>
                         <div className="banner-cta v2">Shop Now</div>
+                        </Link>
                     </div>
                 </div>
                 

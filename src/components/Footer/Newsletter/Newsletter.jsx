@@ -5,6 +5,7 @@ import {
     FaTiktok,
 } from "react-icons/fa";
 import "./Newsletter.scss";
+import { Link } from 'react-router-dom';
 
 const Newsletter = () => {
     return (
@@ -24,17 +25,19 @@ const Newsletter = () => {
                     Will be used in accordance with our Privacy Policy
                 </span>
                 <span className="social-icons">
+                
                     <div className="icon">
+                        
                         <FaTiktok size={14} />
                         
                     </div>
-                    <div className="icon">
-                        <FaFacebookF size={14} />
-                    </div>
-                   
+                    
+                  
+                    <Link to={"https://www.instagram.com/menci.tn/"}>
                     <div className="icon">
                         <FaInstagram size={14} />
                     </div>
+                    </Link>
                 </span>
             </div>
         </div>
