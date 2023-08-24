@@ -12,7 +12,7 @@ function CheckOut() {
     email: '',
     address: '',
     phone: '',
-    city: '',
+    city: 'Tunis',
     items: cartItems,
     total: cartSubTotal
   });
@@ -60,17 +60,17 @@ function CheckOut() {
 
 
   return (
-    <div className='container'>
-    <div>
+    <div className='checkoutContainer'>
+    <div className='checkout'>
       <form onSubmit={handleSubmit}>
         <label htmlFor="fname">Full Name</label>
-        <input type="text" id="fname" name="name" placeholder="Full name" value={formData.name} onChange={handleInputChange}/>
+        <input type="text" className="clientData" id="fname" name="name" placeholder="Full name" value={formData.name} onChange={handleInputChange}/>
         <label htmlFor="fname">Email</label>
-        <input type="email" id="fname" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange}/>
+        <input type="email" id="fname" className="clientData" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange}/>
         <label htmlFor="phone">Number</label>
-        <input type="Text" id="lname" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange}/>
+        <input type="Text" id="lname" className="clientData" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange}/>
         <label htmlFor="City">City</label>
-        <select id="country" name="city" value={formData.city} onChange={handleInputChange}>
+        <select id="country" className="clientData" name="city" value={formData.city} onChange={handleInputChange}>
           <option value="australia">Tunis</option>
           <option value="Ariena">Ariena</option>
           <option value="Ben Arous">Ben Arous</option>
@@ -98,8 +98,8 @@ function CheckOut() {
           
         </select>
         <label htmlFor="Address">Address</label>
-        <input type="Text" id="address" name="address" placeholder="Your Address" value={formData.address} onChange={handleInputChange}/>
-        <input type="submit" defaultValue="Submit" />
+        <input type="Text" className="clientData" id="address" name="address" placeholder="Your Address" value={formData.address} onChange={handleInputChange}/>
+        <input className='submitbtn' type="submit" defaultValue="Submit" />
       </form>
     </div>
   </div>
