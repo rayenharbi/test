@@ -72,7 +72,7 @@ const Cart = () => {
                                 <Link to={'/CheckOut'} >
                                 <button
                                     className="checkout-cta"
-                                    // onClick={handlePayment}
+                                     onClick={"/CheckOUT"}
                                 
                                 >
                                     Checkout

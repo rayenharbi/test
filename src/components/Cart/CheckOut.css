@@ -1,10 +1,15 @@
+/* <<<<<<< HEAD:src/components/CheckOut/CheckOut.css
 /* @import "../../css-config/mixins.scss";
 .container{
+======= */
+/* @import "../../css-config/mixins.scss"; */
+.checkoutContainer{
+/* >>>>>>> 7edcd9f4c6e1c7d46b0c02f388d3ddd105145370:src/components/Cart/CheckOut.css */
     width: 50%;
     height: 50%;
 }
 
-input[type=text], select {
+.clientData {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -14,7 +19,7 @@ input[type=text], select {
     box-sizing: border-box;
   }
   
-  input[type=submit] {
+  .submitbtn {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -25,13 +30,13 @@ input[type=text], select {
     cursor: pointer;
   }
   
-  input[type=submit]:hover {
+  .submitbtn:hover {
     background-color: #45a049;
   }
   
-  div {
+  .checkout {
     border-radius: 5px;
     
     padding: 20px;
     
-  } */
+  } 
