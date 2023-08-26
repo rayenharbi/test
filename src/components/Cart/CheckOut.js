@@ -1,12 +1,12 @@
 import './CheckOut.css';
-import React, { useContext, useState, setValidated, setShowCart } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../utils/context";
 import CartItem from "./CartItem/CartItem"
+import { useNavigate } from 'react-router-dom'
 
 function CheckOut() {
   const { cartItems, cartSubTotal } = useContext(Context);
-  const [validated, setValidated] = useState(false);
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,9 +45,6 @@ function CheckOut() {
         console.error('An error occurred while submitting the form:', error);
       }
     }
-
-    setValidated(true);
-    console.log(formData);
   };
 
   const handleInputChange = (event) => {
@@ -58,7 +55,11 @@ function CheckOut() {
     }));
   };
 
-
+  if (cartItems.length === 0) {
+    navigate('/');
+    return null; // Render nothing
+  }
+  
   return (
     <div className='checkoutContainer'>
     <div className='checkout'>
@@ -102,6 +103,42 @@ function CheckOut() {
         <input className='submitbtn' type="submit" defaultValue="Submit" />
       </form>
     </div>
+    <div className='cartItems'>
+            {cartItems?.map((item) => (
+                <div className='cartItem'>
+                    <div className="img-container">
+                        <img
+                            src={
+                                item.main_image
+                            }
+                        />
+                    </div>
+                    <div className="item-details">
+                        <div className="item_title">{item.title}</div>
+                        <div>{item.size}</div>
+                        <div className="text">
+                            <span>{item.quantity}</span>
+                            <span>x</span>
+                            <span className="highlight">
+                                <span>&#8377;</span>
+                                {item.price *
+                                    item.quantity}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+            <div className='cartSummary'>
+              <div className='summaryText'>
+                <span>Total Items:</span>
+                <span>{cartItems.length}</span>
+              </div>
+              <div className='summaryText'>
+                <span>Cart Total:</span>
+                <span className='highlight2'>{cartSubTotal}</span>
+              </div>
+            </div>
+          </div>         
   </div>
   );
 }
