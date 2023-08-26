@@ -11,7 +11,7 @@ import logo1 from "../../assets/logo1.png";
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
-    const [searchModal, setSearchModal] = useState(false);
+    // const [searchModal, setSearchModal] = useState(false);
     const navigate = useNavigate();
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -37,14 +37,15 @@ const Header = () => {
                     <ul className="left">
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("/about")}>About</li>
-                        <li>Categories</li>
+                        <li onClick={() => navigate("/Contact")}>Contact Us</li>
+                        {/* <li>Categories</li> */}
                     </ul>
                     <div className="center" onClick={() => navigate("/")}>
-                    <img src={logo1} style={{ width: '60px', height: 'auto'  }} alt=""/>
+                    <img src={logo1} style={{ width: '45px', height: 'auto'  }} alt=""/>
                     </div>
                     <div className="right">
-                        <TbSearch onClick={() => setSearchModal(true)} />
-                        <AiOutlineHeart />
+                        {/* <TbSearch onClick={() => setSearchModal(true)} /> */}
+                        {/* <AiOutlineHeart /> */}
                         <span
                             className="cart-icon"
                             onClick={() => setShowCart(true)}
@@ -55,7 +56,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            {searchModal && <Search setSearchModal={setSearchModal} />}
+            {/* {searchModal && <Search setSearchModal={setSearchModal} />} */}
             {showCart && <Cart />}
         </>
     );

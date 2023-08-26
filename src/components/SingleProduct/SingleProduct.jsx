@@ -3,6 +3,10 @@ import { Context } from "../../utils/context";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import {
     FaFacebookF,
     FaTwitter,
@@ -47,19 +51,41 @@ const SingleProduct = () => {
         setQuantity((prevState) => prevState + 1);
     };
 
-
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      };
 
     return (
         <div className="single-product-main-content">
             <div className="layout">
                 <div className="single-product-page">
                     <div className="left">
-                        <img
-                            src={
-                                product.main_image
-                            }
-                        />
+                    {product.images && product.images.length > 0 ? (
+    <Slider {...sliderSettings}>
+      {product.images.map((image, index) => (
+        <div key={index} className="slider-image-container">
+          <img src={image} alt={`Product ${index}`} className="slider-image" />
+        </div>
+      ))}
+    </Slider>
+  ) : (
+    <p>No images available for this product.</p>
+  )}
                     </div>
+                    
                     <div className="right">
                         <span className="name">{product.title}</span>
                         <span className="price">&#8377;{product.price}</span>

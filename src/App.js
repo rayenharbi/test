@@ -9,6 +9,7 @@ import SingleProduct from "./components/SingleProduct/SingleProduct";
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import AppContext from "./utils/context";
 import CheckOut from "./components/Cart/CheckOut"
+import ContactForm from "./components/Contact/Contact";
 
 function App() {
     return (
@@ -19,7 +20,8 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/category/:id" element={<Category />} />
                     <Route path="/product/:id" element={<SingleProduct />} />
-                    <Route path="/CheckOut" element={<CheckOut />} />
+                    <Route path="/CheckOut/:id" element={<CheckOut />} />
+                    <Route path="/Contact" element={<ContactForm />} />
                 </Routes>
                 
                 <Newsletter />
