@@ -77,7 +77,7 @@ const SingleProduct = () => {
     <Slider {...sliderSettings}>
       {product.images.map((image, index) => (
         <div key={index} className="slider-image-container">
-          <img src={image} alt={`Product ${index}`} className="slider-image" />
+          <img src={image.src} alt={`Product ${index}`} className="slider-image" />
         </div>
       ))}
     </Slider>

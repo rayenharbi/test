@@ -5,7 +5,8 @@ import CartItem from "./CartItem/CartItem"
 import { useNavigate } from 'react-router-dom'
 
 function CheckOut() {
-  const { cartItems, cartSubTotal } = useContext(Context);
+  const [success, setSuccess] = useState(false);
+  const { cartItems, cartSubTotal, clearCart } = useContext(Context);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -35,8 +36,7 @@ function CheckOut() {
 
         if (response.ok) {
           // Handle success
-          console.log('Form data submitted successfully');
-          // You can perform further actions like showing a success message
+          clearCart();
         } else {
           // Handle errors
           console.error('Form data submission failed');
@@ -109,7 +109,7 @@ function CheckOut() {
                     <div className="img-container">
                         <img
                             src={
-                                item.main_image
+                                item.images[0].src
                             }
                         />
                     </div>

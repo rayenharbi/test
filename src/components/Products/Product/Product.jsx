@@ -12,7 +12,7 @@ const Product = ({item}) => {
             <div className="thumbnail">
                 <img
                     src={
-                        item.main_image
+                        item.images[0].src
                     }
                 />
             </div>

@@ -18,7 +18,7 @@ const CartItem = () => {
                     <div className="image-container">
                         <img
                             src={
-                                item.main_image
+                                item.images[0].src
                             }
                         />
                     </div>

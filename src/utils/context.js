@@ -35,6 +35,9 @@ const AppContext = ({ children }) => {
         setCartSubTotal(subTotal);
     }, [cartItems]);
 
+    const clearCart = () => {
+        setCartItems([]);
+    };
 
     const handleAddToCart = (product, quantity, size) => {
         const newItem = { ...product, quantity, size };
@@ -82,6 +85,7 @@ const AppContext = ({ children }) => {
                 setShowCart,
                 handleCartProductQuantity,
                 cartSubTotal,
+                clearCart,
             }}
         >
             {children}

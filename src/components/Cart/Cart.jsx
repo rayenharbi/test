@@ -70,11 +70,7 @@ const Cart = () => {
                             </div>
                             <div className="button">
                                 <Link to={'/CheckOut'} >
-                                <button
-                                    className="checkout-cta"
-                                     onClick={"/CheckOUT"}
-                                
-                                >
+                                <button className="checkout-cta">
                                     Checkout
                                 </button>
                                 </Link>

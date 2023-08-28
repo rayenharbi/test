@@ -3,7 +3,8 @@
     height: 50%;
     background-color: #f2f2f2;
     display: flex;
-    align-content: center;
+    margin: auto;
+    justify-content: center;
   }
   
   .inputField {
@@ -35,4 +36,15 @@
     background-color: #f2f2f2;
     padding: 20px;
   }
+
+.successMessage {
+  background-color: #4caf50; 
+  color: white; 
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 30px auto
+}
+
   
