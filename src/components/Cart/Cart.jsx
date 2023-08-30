@@ -65,7 +65,7 @@ const Cart = () => {
                             <div className="subtotal">
                                 <span className="text">Subtotal:</span>
                                 <span className="text total">
-                                    &#8377;{cartSubTotal}
+                                    TND {cartSubTotal}
                                 </span>
                             </div>
                             <div className="button">

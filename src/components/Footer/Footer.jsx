@@ -8,10 +8,7 @@ const Footer = () => {
                 <div className="col">
                     <div className="title">About</div>
                     <div className="text">
-                        Voluptatem accusantium doloremque laudantium, totam rem
-                        aperiam, eaque ipsa quae ab illo inventore veritatis et
-                        quasi architecto beatae vitae dicta sunt explicabo eaque
-                        ipsa quae ab illo.
+                    where style meets expression. At Menci, we believe that clothing is more than just fabric; it's a canvas for self-expression. Our brand is all about embracing individuality, empowering you to showcase your unique personality through fashion. From timeless classics to bold statement pieces, Menci offers a curated collection that combines quality, comfort, and creativity. Join us in redefining fashion as a form of art and let your clothing tell your story. Welcome to Menci – where every outfit is a masterpiece.
                     </div>
                 </div>
                 <div className="col">

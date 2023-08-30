@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 const Newsletter = () => {
     const handleSubmit = async (event) => {
-        console.log(document.getElementById('email_input').value)
         event.preventDefault();
         const form = event.currentTarget;
     

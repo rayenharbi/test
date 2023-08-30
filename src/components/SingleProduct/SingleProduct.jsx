@@ -88,7 +88,7 @@ const SingleProduct = () => {
                     
                     <div className="right">
                         <span className="name">{product.title}</span>
-                        <span className="price">&#8377;{product.price}</span>
+                        <span className="price">{product.price}TND</span>
                         <span className="desc">{product.description}</span>
                         <div className="product_size">  
                           <div className="psize active" value="S" onClick={SelectSize}>S</div>
